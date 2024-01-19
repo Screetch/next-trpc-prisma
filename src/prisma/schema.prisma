@@ -1,0 +1,15 @@
+// prisma/schema.prisma
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Todos {
+  id            String    @id @default(cuid())
+  content       String
+  done          Boolean   @default(false)
+}
